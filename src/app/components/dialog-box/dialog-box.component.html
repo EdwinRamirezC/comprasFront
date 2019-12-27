@@ -1,0 +1,40 @@
+<h1>Articulo</h1>
+<hr>
+<div class="form-row" *ngIf="action != 'Delete'; else elseTemplate">
+  <label for="sku"> SKU</label>
+  <input type="number" class="form-control" id="sku" [(ngModel)]="datos.sku"  >
+</div>
+<div class="form-row" *ngIf="action != 'Delete'">
+  <label for="nombreArticulo">Nombre del articulo</label>
+  <input type="text" class="form-control" id="nombreArticulo" [(ngModel)]="datos.nombreArticulo" >
+</div>
+<div class="form-row" *ngIf="action != 'Delete'">
+  <label for="tipo">Tipo de articulo</label>
+  <select class="custom-select" id="tipo" [(ngModel)]="datos.tipo">
+    <option *ngFor="let tipoA of listaTipo" [value]="tipoA">{{tipoA}}</option>
+  </select>
+</div>
+<hr>
+<!-- <div mat-dialog-content>
+  <mat-form-field *ngIf="action != 'Delete'; else elseTemplate">
+    <input placeholder=" SKU" matInput [(ngModel)]="datos.sku">
+  </mat-form-field>
+  <mat-form-field *ngIf="action != 'Delete'; ">
+    <input placeholder=" Nombre de articulo" matInput [(ngModel)]="datos.nombreArticulo">
+  </mat-form-field>
+  <mat-form-field *ngIf="action != 'Delete';">
+    <input placeholder=" tipo de articulo" matInput [(ngModel)]="datos.tipo">
+  </mat-form-field> -->
+
+<!-- </div> -->
+<ng-template #elseTemplate>
+  Esta seguro que desea borrar el articulo <b>{{datos.nombreArticulo}}</b>?
+</ng-template>
+<div class="row">
+  <div class="col-md-3 offset-2">
+    <button class="btn btn-primary" (click)="doAction()" >Aceptar</button>
+  </div>
+  <div class="col-md-3 offset-1">
+    <button class="btn btn-warning" (click)="closeDialog()" >Cancelar</button>
+  </div>
+</div>

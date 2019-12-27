@@ -1,0 +1,29 @@
+<div *ngIf="errors" class="alert alert-danger" role="alert">
+  {{ errors }}
+</div>
+<h1>Reporte</h1>
+<hr>
+<div class="form-group row">
+  <div class="form-group col-md-6">
+    <label for="fechaIni" >Fecha inicial</label>
+    <input class="form-control" type="date" [(ngModel)]="fechaIni" id="fechaIni">
+  </div>
+  <div class="form-group col-md-6">
+    <label for="fechaFin">Fecha final</label>
+    <input class="form-control" type="date" [(ngModel)]="fechaFin" id="fechaFin">
+  </div>
+</div>
+<div class="form-group row">
+  <div class="form-group col-md-6">
+    <label for="tecnico" >Tecnico</label>
+    <input class="form-control" type="text"  [(ngModel)]="tecnico" id="tecnico">
+  </div>
+  <div class="form-group col-md-6">
+    <label for="cliente">Cliente</label>
+    <input class="form-control" type="text" [(ngModel)]="cliente"   id="cliente">
+  </div>
+</div>
+
+<button type="button" class="btn btn-secondary" (click)="generarReporte()">Generar reporte</button>
+<hr>
+<ngx-json-viewer [json]="reporte" [expanded]="false"></ngx-json-viewer>

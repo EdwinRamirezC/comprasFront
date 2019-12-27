@@ -1,0 +1,22 @@
+<div *ngIf="errors" class="alert alert-danger" role="alert">
+  {{ errors }}
+</div>
+<div *ngIf="success" class="alert alert-success" role="alert">
+  {{success}}
+</div>
+<h1>Inicio de sesion</h1>
+<hr>
+<div class="col-md-4 offset-4">
+    <form [formGroup]="formulario" novalidate>
+      <div class="form-group">
+        <label for="usuario">Usuario</label>
+        <input type="text" class="form-control" id="usuario" formControlName="usuario" >
+      </div>
+      <div class="form-group">
+        <label for="password">Contraseña</label>
+        <input type="password" class="form-control" id="password" formControlName="password">
+      </div>
+      <button type="button" (click)="log()" class="btn btn-primary col-md-4 offset-1" [disabled]="!formulario.valid">Enviar</button>
+      <a [routerLink] = "['/usuarios']" class="offset-2"> Registrarse </a>
+    </form>
+</div>

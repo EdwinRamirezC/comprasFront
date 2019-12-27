@@ -1,0 +1,38 @@
+<div *ngIf="errors" class="alert alert-danger" role="alert">
+  {{ errors }}
+</div>
+<h1>Crear Usuario</h1>
+<hr>
+<form [formGroup]="formulario" novalidate>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="nombre"> Nombre</label>
+      <input type="text" class="form-control" id="nombre" formControlName="nombre"  >
+    </div>
+    <div class="form-group col-md-6">
+      <label for="apellido"> Apellidos</label>
+      <input type="text" class="form-control" id="apellido" formControlName="apellido"  >
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="cedula"> Cedula</label>
+      <input type="number" class="form-control" id="cedula" formControlName="cedula"  >
+    </div>
+    <div class="form-group col-md-6">
+      <label for="usuario"> Nombre de usuario</label>
+      <input type="text" class="form-control" id="usuario" formControlName="usuario" >
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="password"> Contraseña</label>
+      <input type="password" class="form-control" id="password" formControlName="password"  >
+    </div>
+    <div class="form-group col-md-6">
+      <label for="password2"> Confirmar contraseña</label>
+      <input type="password" class="form-control" id="password2" formControlName="password2" >
+    </div>
+  </div>
+  <button type="button" (click) ='guardar()' [disabled]="formulario.invalid" class="btn btn-primary col-md-3 offset-4">Crear usuario</button>
+</form>

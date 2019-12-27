@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col-md-6">
+    <h1>Ordenes asociadas a  {{ nombre | uppercase}}</h1>
+  </div>
+  <div class="col-md-3 offset-3">
+    <button type="button" [routerLink] = "['/orden']" class="btn btn-secondary btn-block">Nueva orden</button>
+  </div>
+</div>
+<hr>
+<div class="card-columns">
+  <div class="card" *ngFor="let orden of ordenes">
+    <div class="card-body">
+      <h4 class="card-title">Orden N°{{ orden.orden }}</h4>
+        <ul class="list-group">
+            <li class="list-group-item" *ngFor="let articulo of orden.articulos"> {{articulo.nombreArticulo}}</li>
+        </ul>
+      <button type="button" [routerLink] = "['/orden',orden.id]" class="btn btn-secondary btn-block">
+        Ver orden
+      </button>
+    </div>
+  </div>
+</div>
